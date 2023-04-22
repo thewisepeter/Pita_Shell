@@ -1,6 +1,11 @@
 #include "main.h"
 
-void run_interactive_mode()
+/**
+ * run_interactive - runs interactive mode
+ *
+ * Return: nothing
+ */
+void run_interactive_mode(void)
 {
 	char *prompt = "$";
 	char *input = NULL, *input_cpy;

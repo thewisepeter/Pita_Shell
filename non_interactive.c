@@ -1,6 +1,11 @@
 #include "main.h"
 
-void run_non_interactive_mode()
+/**
+ * run_non_interactive_mode - run non-interactive mode
+ *
+ * Return: nothing
+ */
+void run_non_interactive_mode(void)
 {
 	char *input = NULL, *input_cpy;
 	char **argv;
