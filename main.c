@@ -31,14 +31,14 @@ void run_interactive_mode(int argc, char **argv, char **envp)
 		argv = parse_input(input, delim, &argc);
 
 		argc = num_token(input_cpy, delim);
-		if (argc != 2)
+		/*if (argc != 2)
 		{
 			perror("many tokens");
 		}
-		else
-		{
+		else*/
+		/*{*/
 			execute(argv, env);
-		}
+		/*}*/
 		cleanup(argv);
 	}
 	free(input);
