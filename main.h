@@ -18,8 +18,8 @@ void _puts(char *str);
 int num_token(char *str, const char *delim);
 char **alloc_argv(int n);
 
-void run_non_interactive_mode();
-void run_interactive_mode();
+void run_non_interactive_mode(int argc, char **argv, char **envp);
+void run_interactive_mode(int argc, char **argv, char **envp);
 void cleanup(char **argv);
 void error(char *msg);
 void *safe_malloc(size_t size);
