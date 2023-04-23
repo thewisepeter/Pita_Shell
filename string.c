@@ -59,29 +59,26 @@ int _strcmp(char *s1, char *s2)
 }
 
 /**
- * _strncat - function that concatenates two strings
- * use at most n bytes from src
- * @dest: destination
- * @src: source string
- * @n: bytes from src
- * Return: dest
+ * _strcat - function that concatenates two strings
+ *@src: source file
+ *@dest: destination file
+ * Return: pointer
  */
-
-char *_strncat(char *dest, char *src, int n)
+char *_strcat(char *dest, char *src)
 {
-	int dest_len = 0;
-	int src_len = 0;
+	int i = 0;
+	int j = 0;
 
-	while (dest[dest_len] != '\0')
+	for (i = 0 ; dest[i] != 0 ; i++)
 	{
-		dest_len++;
+		;
 	}
-
-	while (src[src_len] != '\0' && src_len < n)
+	for (j = 0 ; src[j] != 0 ; j++)
 	{
-		dest[dest_len + src_len] = src[src_len];
-		src_len++;
+		dest[i] = src[j];
+		i++;
 	}
+	dest[i + 1] = '\0';
 	return (dest);
 }
 
