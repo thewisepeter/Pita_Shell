@@ -31,14 +31,8 @@ void run_interactive_mode(int argc, char **argv, char **envp)
 		argv = parse_input(input, delim, &argc);
 
 		argc = num_token(input_cpy, delim);
-		/*if (argc != 2)
-		{
-			perror("many tokens");
-		}
-		else*/
-		/*{*/
-			execute(argv, env);
-		/*}*/
+		execute(argv, env);
+		
 		cleanup(argv);
 	}
 	free(input);
@@ -73,14 +67,7 @@ void run_non_interactive_mode(int argc, char **argv, char **envp)
 		argv = parse_input(input, delim, &argc);
 
 		argc = num_token(input_cpy, delim);
-		if (argc != 2)
-		{
-			perror("many tokens");
-		}
-		else
-		{
-			execute(argv, env);
-		}
+		execute(argv, env);
 		cleanup(argv);
 	}
 	free(input);
