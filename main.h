@@ -27,6 +27,7 @@ void *safe_malloc(size_t size);
 char **parse_input(char *input, const char *delim, int *num_tokens);
 void execute(char **argv, char **env);
 
+char *_strchr(char *s, char c);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
@@ -34,7 +35,7 @@ char *_strcat(char *dest, char *src);
 char *_strdup(char *str);
 
 int divider(char *s, const char *c);
-size_t _getline(char **file_1, size_t *n);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 int _putchar(char c);
 
 #endif /* _MAIN__H_ */

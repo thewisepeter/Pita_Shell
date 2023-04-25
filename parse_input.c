@@ -25,7 +25,6 @@ char **parse_input(char *input, const char *delim, int *argc)
 		(*argc)++;
 		token = strtok(NULL, delim);
 	}
-
 	argv = safe_malloc(sizeof(char *) * (*argc));
 	token = strtok(input, delim);
 	for (i = 0; token; i++)
@@ -35,7 +34,6 @@ char **parse_input(char *input, const char *delim, int *argc)
 		token = strtok(NULL, delim);
 	}
 	argv[i] = NULL;
-
 	free(input_copy);
 
 	return (argv);
