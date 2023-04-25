@@ -20,7 +20,7 @@ void run_interactive_mode(int argc, char **argv, char **envp)
 	while (1)
 	{
 		_puts(prompt);
-		nchars_read = getline(&input, &n, stdin);
+		nchars_read = _getline(&input, &n, stdin);
 		if (nchars_read == -1)
 		{
 			exit(1);
@@ -31,11 +31,11 @@ void run_interactive_mode(int argc, char **argv, char **envp)
 		argv = parse_input(input, delim, &argc);
 
 		argc = num_token(input_cpy, delim);
+		check_argv(argv, env);
 		execute(argv, env);
 		
 		cleanup(argv);
 		free(input_cpy);
-		/*free(input);*/
 	}
 }
 
@@ -49,13 +49,13 @@ void run_interactive_mode(int argc, char **argv, char **envp)
  */
 void run_non_interactive_mode(int argc, char **argv, char **envp)
 {
-	char *input = NULL, *input_cpy;
+	char *input = NULL, *input_cpy = NULL;
 	const char *delim = " \n";
 	ssize_t nchars_read;
 	char **env = envp;
 	size_t n = 0;
 
-	nchars_read = getline(&input, &n, stdin);
+	nchars_read = _getline(&input, &n, stdin);
 	if (nchars_read == -1)
 	{
 		exit(1);
@@ -66,10 +66,10 @@ void run_non_interactive_mode(int argc, char **argv, char **envp)
 	argv = parse_input(input, delim, &argc);
 	
 	argc = num_token(input_cpy, delim);
+	check_argv(argv, env);
 	execute(argv, env);
 	cleanup(argv);
 	free(input_cpy);
-	free(input);
 }
 
 /**
