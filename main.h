@@ -26,8 +26,9 @@ void error(char *msg);
 void *safe_malloc(size_t size);
 char **parse_input(char *input, const char *delim, int *num_tokens);
 void execute(char **argv, char **env);
-void exit_shell(void);
+void exit_shell(char **argv);
 
+ int _atoi(char *s);
 int _env(char **env);
 int check_argv(char **argv, char **env);
 char *_strchr(char *s, char c);

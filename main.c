@@ -34,7 +34,7 @@ void run_interactive_mode(int argc, char **argv, char **envp)
 		check_argv(argv, env);
 		execute(argv, env);
 		
-		cleanup(argv);
+	/*	cleanup(argv);*/
 		free(input_cpy);
 	}
 }
