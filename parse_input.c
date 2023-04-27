@@ -8,32 +8,33 @@
  *
  * Return: double pointer
  */
-char **parse_input(char *input, const char *delim, int *argc)
+char **parse_input(char *input, const char *delim, int *num_tokens)
 {
 	char *token, *input_copy;
 	int i;
 	char **argv;
 
-	input_copy = _strdup(input);
+	input_copy = strdup(input);
 	if (!input_copy)
 		error("string duplication error");
-
-	*argc = 0;
+	*num_tokens = 0;
 	token = strtok(input_copy, delim);
 	while (token)
 	{
-		(*argc)++;
+		(*num_tokens)++;
 		token = strtok(NULL, delim);
 	}
-	argv = safe_malloc(sizeof(char *) * (*argc));
+
+	argv = safe_malloc(sizeof(char *) * ((*num_tokens) + 1));
 	token = strtok(input, delim);
 	for (i = 0; token; i++)
 	{
-		argv[i] = safe_malloc(sizeof(char) * (_strlen(token) + 1));
-		_strcpy(argv[i], token);
+		argv[i] = safe_malloc(sizeof(char) * (strlen(token) + 1));
+		strcpy(argv[i], token);
 		token = strtok(NULL, delim);
 	}
 	argv[i] = NULL;
+
 	free(input_copy);
 
 	return (argv);

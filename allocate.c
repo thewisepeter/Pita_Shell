@@ -8,6 +8,7 @@
  */
 char *allocate(int n)
 {
+	int i;
 	char *buff = malloc(sizeof(char) * n + 1);
 
 	if (!buff)
@@ -15,5 +16,10 @@ char *allocate(int n)
 		perror("memory allocation error");
 		return (NULL);
 	}
+	for (i = 0; i < n; i++)
+	{
+		buff[i] = 0;
+	}
+
 	return (buff);
 }

@@ -8,7 +8,6 @@
  */
 void error(char *msg)
 {
-	_puts(msg);
-	perror(":not found");
-	return;
+	perror(msg);
+	exit(1);
 }
